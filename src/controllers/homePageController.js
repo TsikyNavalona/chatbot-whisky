@@ -47,21 +47,14 @@ let setUpUserFacebook = (req, res) => {
     "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
     "method": "POST",
     "json": data
-  }, (err, res, body) => {
+  }, (err, res, body,next) => {
     if (!err) {
-      return res.status(200).json({
-        "message":"Configuration réussie"
-      })
+
     } else {
-      return res.status(500).json({
-        "message":"Erreur de configuration"
-      })
+      
     }
   });
 
-  return res.status(200).json({
-    message: "OK"
-  });
 };
 module.exports ={
   getHomePage: getHomePage,
