@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({extended : true}));
 
 initWebRoutes(app);
 
-let port = process.env.port || 8080;
+let port = process.env.PORT || 8080;
 let MY_VERIFY_TOKEN = process.env.MY_VERIFY_TOKEN;
 app.listen(port, ()=>{
   console.log("go");
