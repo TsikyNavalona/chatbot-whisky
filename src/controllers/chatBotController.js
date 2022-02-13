@@ -1,6 +1,9 @@
 require("dotenv").config();
 import request from "request";
+import chatBotService from "../services/chatBotService";
+
 const MY_VERIFY_TOKEN = process.env.MY_VERIFY_TOKEN;
+const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 let test = (req,res) =>{
   return res.send("hello ono");
 }
@@ -114,7 +117,7 @@ function handleMessage(sender_psid, received_message) {
 }
 
 // Handles messaging_postbacks events
-function handlePostback(sender_psid, received_postback) {
+let handlePostback = async(sender_psid, received_postback)=> {
   let response;
 
   // Get the payload for the postback
@@ -123,14 +126,15 @@ function handlePostback(sender_psid, received_postback) {
   // Set the response based on the postback payload
   switch(payload){
     case "GET_STARTED":
-      response = { "text": "Bienvenue sur le chatBot de Whisky Mada Corp"};
+    let username = await chatBotService.getFacebookName(sender_psid);
+      response = { "text": 'Hey ${username} Bienvenue  sur le Chatbot de Whisky Mada Corp'};
       break;
     default :
       console.log("erreur");
   }
   // Send the message to acknowledge the postback
   callSendAPI(sender_psid, response);
-}
+};
 
 // Sends response messages via the Send API
 function callSendAPI(sender_psid, response) {
@@ -156,6 +160,8 @@ function callSendAPI(sender_psid, response) {
     }
   });
 }
+
+
 module.exports = {
   test: test,
   getWebhook: getWebhook,
