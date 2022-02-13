@@ -37,7 +37,10 @@ let setUpUserFacebook = (req, res) => {
                 }
             ]
         }
-    ]
+    ],
+    "whitelisted_domains":[
+    "https://chatbot-whisky.herokuapp.com/"
+  ]
   };
   request({
     "uri": "https://graph.facebook.com/v7.0/me/messenger_profile",
