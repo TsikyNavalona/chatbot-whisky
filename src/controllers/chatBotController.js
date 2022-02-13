@@ -117,7 +117,7 @@ function handleMessage(sender_psid, received_message) {
 }
 
 // Handles messaging_postbacks events
-let handlePostback = async(sender_psid, received_postback)=> {
+let handlePostback = async (sender_psid, received_postback) => {
   let response;
 
   // Get the payload for the postback
@@ -126,7 +126,7 @@ let handlePostback = async(sender_psid, received_postback)=> {
   // Set the response based on the postback payload
   switch(payload){
     case "GET_STARTED":
-    let username = await chatBotService.getFacebookName(sender_psid);
+    let username = await chatBotService.getFacebookUsername(sender_psid);
       response = { "text": 'Hey ${username} Bienvenue  sur le Chatbot de Whisky Mada Corp'};
       break;
     default :
