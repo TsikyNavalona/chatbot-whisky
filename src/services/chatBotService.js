@@ -102,6 +102,67 @@ let sendMainMenu = (sender_psid) => {
   });
 };
 
+let sendListWhisky = (sender_psid) => {
+  return new Promise( async(resolve, reject) => {
+    try{
+      let response = {
+        "attachment": {
+          "type": "template",
+          "payload": {
+            "template_type": "generic",
+            "elements": [
+              {
+                "title": "Johnnie Walker Red Label",
+                //"subtitle": "Nous sommes heureux de vous proposer une large gamme de nos vins et nos spiritueux,",
+                "image_url": "https://i.ibb.co/Q9k9Nfv/red.jpg",
+                "buttons": [
+                  {
+                    "type": "postback",
+                    "title": "En savoir plus",
+                    "payload": "RED_LABEL",
+                  },
+                ],
+              },
+              {
+                "title": "Jack Daniel's OLD NO. 7",
+                "image_url": "https://i.ibb.co/Ypg5pf6/jackda.jpg",
+                "buttons": [
+                  {
+                    "type": "postback",
+                    "title": "En savoir plus",
+                    "payload": "JACK_DA",
+                  },
+                ],
+              },
+              {
+                "title": "Johnnie Walker Black Label",
+                "image_url": "https://i.ibb.co/5G16hXG/black.jpg",
+                "buttons": [
+                  {
+                    "type": "postback",
+                    "title": "En savoir plus",
+                    "payload": "BLACK_LABEL",
+                  },
+                ],
+              }
+            ]
+          }
+        }
+      }
+      await sendMessage(sender_psid,response);
+      resolve("done");
+    }catch(e){
+      reject(e)
+    }
+  });
+
+};
+
+let sendContact = (sender_psid) => {
+
+
+};
+
 let sendMessage = (sender_psid, response) =>{
   let request_body = {
     "recipient": {
@@ -128,5 +189,7 @@ let sendMessage = (sender_psid, response) =>{
 module.exports = {
     getFacebookUsername: getFacebookUsername,
     sendResponseWelcomeNewCustomer: sendResponseWelcomeNewCustomer,
-    sendMainMenu: sendMainMenu
+    sendMainMenu: sendMainMenu,
+    sendListWhisky: sendListWhisky,
+    sendContact: sendContact
 };

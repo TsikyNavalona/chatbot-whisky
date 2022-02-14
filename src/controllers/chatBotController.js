@@ -133,6 +133,12 @@ let handlePostback = async (sender_psid, received_postback) => {
     case "MENU":
       await chatBotService.sendMainMenu(sender_psid);
       break;
+    case "LIST_WHISKY":
+      await chatBotService.sendListWhisky(sender_psid);
+      break;
+    case "CONTACT":
+      await chatBotService.sendContact(sender_psid);
+      break;
     default :
       console.log("erreur");
   }
