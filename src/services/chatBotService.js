@@ -231,6 +231,122 @@ let sendDetailWhisky = (sender_psid, idWhisky) => {
   });
 };
 
+let sendAchatWhisky = (sender_psid, idWhisky) => {
+  return new Promise( async(resolve, reject) => {
+    try{
+      if(idWhisky===1){
+        let request_body = {
+          "recipient":{
+            "id": sender_psid
+          },
+          "messaging_type": "RESPONSE",
+          "message":{
+            "text": "Comment voulez-vous obtenir le J.W Red Label",
+            "quick_replies":[
+              {
+                "content_type":"text",
+                "title":"Récupérer chez nous",
+                "payload":"RL_RECUP",
+              },{
+                "content_type":"text",
+                "title":"Se faire livrer",
+                "payload":"RL_LIVR",
+              }
+            ]
+          }
+        }
+
+        // Send the HTTP request to the Messenger Platform
+        request({
+          "uri": "https://graph.facebook.com/v7.0/me/messages",
+          "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
+          "method": "POST",
+          "json": request_body
+        }, (err, res, body) => {
+          if (!err) {
+            console.log('message sent!')
+          } else {
+            console.error("Unable to send message:" + err);
+          }
+        });
+      }else if(idWhisky===2){
+        let request_body = {
+          "recipient":{
+            "id": sender_psid
+          },
+          "messaging_type": "RESPONSE",
+          "message":{
+            "text": "Comment voulez-vous obtenir le Jack Daniel's",
+            "quick_replies":[
+              {
+                "content_type":"text",
+                "title":"Récupérer chez nous",
+                "payload":"JD_RECUP",
+              },{
+                "content_type":"text",
+                "title":"Se faire livrer",
+                "payload":"JD_LIVR",
+              }
+            ]
+          }
+        }
+
+        // Send the HTTP request to the Messenger Platform
+        request({
+          "uri": "https://graph.facebook.com/v7.0/me/messages",
+          "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
+          "method": "POST",
+          "json": request_body
+        }, (err, res, body) => {
+          if (!err) {
+            console.log('message sent!')
+          } else {
+            console.error("Unable to send message:" + err);
+          }
+        });
+      }else if(idWhisky===3){
+        let request_body = {
+          "recipient":{
+            "id": sender_psid
+          },
+          "messaging_type": "RESPONSE",
+          "message":{
+            "text": "Comment voulez-vous obtenir le J.W Black Label",
+            "quick_replies":[
+              {
+                "content_type":"text",
+                "title":"Récupérer chez nous",
+                "payload":"BL_RECUP",
+              },{
+                "content_type":"text",
+                "title":"Se faire livrer",
+                "payload":"BL_LIVR",
+              }
+            ]
+          }
+        }
+
+        // Send the HTTP request to the Messenger Platform
+        request({
+          "uri": "https://graph.facebook.com/v7.0/me/messages",
+          "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
+          "method": "POST",
+          "json": request_body
+        }, (err, res, body) => {
+          if (!err) {
+            console.log('message sent!')
+          } else {
+            console.error("Unable to send message:" + err);
+          }
+        });
+      }
+      resolve("done");
+    }catch(e){
+      reject(e)
+    }
+  });
+};
+
 let sendContact = (sender_psid) => {
 
 
@@ -265,5 +381,6 @@ module.exports = {
     sendMainMenu: sendMainMenu,
     sendListWhisky: sendListWhisky,
     sendContact: sendContact,
-    sendDetailWhisky: sendDetailWhisky
+    sendDetailWhisky: sendDetailWhisky,
+    sendAchatWhisky: sendAchatWhisky
 };
