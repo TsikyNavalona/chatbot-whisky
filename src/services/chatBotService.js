@@ -193,11 +193,11 @@ let sendDetailWhisky = (sender_psid, idWhisky) => {
         let prix_response = {"text": `160.000 Ariary`}
 
         await sendTypingOn(sender_psid);
+        await sendMessage(sender_psid,image_response);
+        await sendTypingOn(sender_psid);
         await sendMessage(sender_psid,descr_response);
         await sendTypingOn(sender_psid);
         await sendMessage(sender_psid,prix_response);
-        await sendTypingOn(sender_psid);
-        await sendMessage(sender_psid,image_response);
       }else if(idWhisky===2){
         let image_response = {
           "attachment": {
@@ -211,11 +211,11 @@ let sendDetailWhisky = (sender_psid, idWhisky) => {
         let prix_response = {"text": `210.000 Ariary`}
 
         await sendTypingOn(sender_psid);
+        await sendMessage(sender_psid,image_response);
+        await sendTypingOn(sender_psid);
         await sendMessage(sender_psid,descr_response);
         await sendTypingOn(sender_psid);
         await sendMessage(sender_psid,prix_response);
-        await sendTypingOn(sender_psid);
-        await sendMessage(sender_psid,image_response);
       }
       else if(idWhisky===3){
         let image_response = {
@@ -230,11 +230,11 @@ let sendDetailWhisky = (sender_psid, idWhisky) => {
         let prix_response = {"text": `250.000 Ariary`}
 
         await sendTypingOn(sender_psid);
+        await sendMessage(sender_psid,image_response);
+        await sendTypingOn(sender_psid);
         await sendMessage(sender_psid,descr_response);
         await sendTypingOn(sender_psid);
         await sendMessage(sender_psid,prix_response);
-        await sendTypingOn(sender_psid);
-        await sendMessage(sender_psid,image_response);
       }
 
       resolve("done");
