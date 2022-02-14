@@ -118,8 +118,13 @@ let sendListWhisky = (sender_psid) => {
                 "buttons": [
                   {
                     "type": "postback",
-                    "title": "En savoir plus",
-                    "payload": "RED_LABEL",
+                    "title": "Acheter",
+                    "payload": "A_RED_LABEL",
+                  },
+                  {
+                    "type": "postback",
+                    "title": "Details",
+                    "payload": "D_RED_LABEL",
                   },
                 ],
               },
@@ -129,8 +134,13 @@ let sendListWhisky = (sender_psid) => {
                 "buttons": [
                   {
                     "type": "postback",
-                    "title": "En savoir plus",
-                    "payload": "JACK_DA",
+                    "title": "Acheter",
+                    "payload": "A_JACK_DA",
+                  },
+                  {
+                    "type": "postback",
+                    "title": "Details",
+                    "payload": "D_JACK_DA",
                   },
                 ],
               },
@@ -140,8 +150,13 @@ let sendListWhisky = (sender_psid) => {
                 "buttons": [
                   {
                     "type": "postback",
-                    "title": "En savoir plus",
-                    "payload": "BLACK_LABEL",
+                    "title": "Acheter",
+                    "payload": "A_BLACK_LABEL",
+                  },
+                  {
+                    "type": "postback",
+                    "title": "Details",
+                    "payload": "D_BLACK_LABEL",
                   },
                 ],
               }
