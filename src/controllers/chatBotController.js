@@ -69,8 +69,8 @@ let postWebhook =(req,res) =>{
 
 }
 // Handles messages events
-function handleMessage(sender_psid, received_message) {
-
+//function handleMessage(sender_psid, received_message) {
+let handleMessage = async (sender_psid, received_message) => {
   let response;
 
   if(received_message && received_message.quick_reply && received_message.quick_reply.payload){
@@ -124,7 +124,7 @@ function handleMessage(sender_psid, received_message) {
 
   // Sends the response message
   callSendAPI(sender_psid, response);
-}
+};
 
 // Handles messaging_postbacks events
 let handlePostback = async (sender_psid, received_postback) => {
