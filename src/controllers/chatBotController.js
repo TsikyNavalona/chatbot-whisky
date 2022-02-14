@@ -74,8 +74,11 @@ function handleMessage(sender_psid, received_message) {
   let response;
 
   if(received_message && received_message.quick_reply && received_message.quick_reply.payload){
-    if(received_message.quick_reply.payload ==="LIST_WHISKY" || received_message.quick_reply.payload ==="MENU"){
-      await handlePostback(sender_psid,received_message.quick_reply)
+    if(received_message.quick_reply.payload ==="MENU"){
+      await chatBotService.sendMainMenu(sender_psid);
+    }
+    else if(received_message.quick_reply.payload ==="LIST_WHISKY" ||){
+      await chatBotService.sendListWhisky(sender_psid);
     }
     return;
   }
