@@ -35,12 +35,13 @@ let sendResponseWelcomeNewCustomer = (username, sender_psid) => {
               "template_type": "generic",
               "elements": [{
                 "title": "Whisky Mada Corp",
+                "subtitle": "Nous proposons des Whiskys importés à des prix defiant toute concurrence,",
                 "image_url": "https://i.ibb.co/CW4JBYQ/img-whisky.jpg",
                 "buttons": [
                   {
                     "type": "postback",
                     "title": "Menu principal",
-                    "payload": "Menu",
+                    "payload": "MENU",
                   },
 
                 ],
@@ -55,6 +56,50 @@ let sendResponseWelcomeNewCustomer = (username, sender_psid) => {
         reject(e)
       }
     });
+};
+
+let sendMainMenu = (sender_psid) => {
+  return new Promise( async(resolve, reject) => {
+    try{
+      let response = {
+        "attachment": {
+          "type": "template",
+          "payload": {
+            "template_type": "generic",
+            "elements": [
+              {
+                "title": "Nos produits",
+                "subtitle": "Nous sommes heureux de vous proposer une large gamme de nos vins et nos spiritueux,"
+                "image_url": "https://i.ibb.co/CW4JBYQ/img-whisky.jpg",
+                "buttons": [
+                  {
+                    "type": "postback",
+                    "title": "Voir les produits",
+                    "payload": "LIST_WHISKY",
+                  },
+                ],
+              },
+              {
+
+                "image_url": "https://checkrz.com/wp-content/uploads/2020/07/contact-us_540x_f09f05db-24f8-4f55-9f0c-4277ed2adb92.jpg",
+                "buttons": [
+                  {
+                    "type": "postback",
+                    "title": "Nous Contacter",
+                    "payload": "CONTACT",
+                  },
+                ],
+              }
+            ]
+          }
+        }
+      }
+      await sendMessage(sender_psid,response);
+      resolve("done");
+    }catch(e){
+      reject(e)
+    }
+  });
 };
 
 let sendMessage = (sender_psid, response) =>{
@@ -79,7 +124,9 @@ let sendMessage = (sender_psid, response) =>{
     }
   });
 };
+
 module.exports = {
     getFacebookUsername: getFacebookUsername,
-    sendResponseWelcomeNewCustomer: sendResponseWelcomeNewCustomer
+    sendResponseWelcomeNewCustomer: sendResponseWelcomeNewCustomer,
+    sendMainMenu: sendMainMenu
 };
