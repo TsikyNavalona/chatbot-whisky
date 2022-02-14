@@ -39,8 +39,8 @@ let sendResponseWelcomeNewCustomer = (username, sender_psid) => {
                 "buttons": [
                   {
                     "type": "postback",
-                    "title": "Liste des Whiskys disponibles",
-                    "payload": "Whiskys",
+                    "title": "Accueil",
+                    "payload": "Accueil",
                   },
 
                 ],
