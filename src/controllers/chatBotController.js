@@ -77,7 +77,7 @@ let handleMessage = async (sender_psid, received_message) => {
     if(received_message.quick_reply.payload ==="MENU"){
       await chatBotService.sendMainMenu(sender_psid);
     }
-    else if(received_message.quick_reply.payload ==="LIST_WHISKY" ||){
+    else if(received_message.quick_reply.payload ==="LIST_WHISKY"){
       await chatBotService.sendListWhisky(sender_psid);
     }
     return;
