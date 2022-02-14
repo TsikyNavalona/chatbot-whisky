@@ -126,14 +126,15 @@ let handlePostback = async (sender_psid, received_postback) => {
   // Set the response based on the postback payload
   switch(payload){
     case "GET_STARTED":
-    let username = await chatBotService.getFacebookUsername(sender_psid);
-      response = { "text": `Hey ${username} Bienvenue  sur le Chatbot de Whisky Mada Corp`};
+      let username = await chatBotService.getFacebookUsername(sender_psid);
+      await chatBotService.sendResponseWelcomeNewCustomer(username,sender_psid);
+      //response = { "text": `Hey ${username} Bienvenue  sur le Chatbot de Whisky Mada Corp`};
       break;
     default :
       console.log("erreur");
   }
   // Send the message to acknowledge the postback
-  callSendAPI(sender_psid, response);
+  //callSendAPI(sender_psid, response);
 };
 
 // Sends response messages via the Send API
