@@ -79,7 +79,14 @@ let handleMessage = async (sender_psid, received_message) => {
     }
     else if(received_message.quick_reply.payload ==="LIST_WHISKY"){
       await chatBotService.sendListWhisky(sender_psid);
+    }else if(received_message.quick_reply.payload ==="DET_ACH_RL"){
+      await chatBotService.sendAchatWhisky(sender_psid,1);
+    }else if(received_message.quick_reply.payload ==="DET_ACH_JD"){
+      await chatBotService.sendAchatWhisky(sender_psid,2);
+    }else if(received_message.quick_reply.payload ==="DET_ACH_BL"){
+      await chatBotService.sendAchatWhisky(sender_psid,3);
     }
+
     return;
   }
 

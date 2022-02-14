@@ -198,6 +198,45 @@ let sendDetailWhisky = (sender_psid, idWhisky) => {
         await sendMessage(sender_psid,descr_response);
         await sendTypingOn(sender_psid);
         await sendMessage(sender_psid,prix_response);
+
+        let request_body = {
+          "recipient":{
+            "id": sender_psid
+          },
+          "messaging_type": "RESPONSE",
+          "message":{
+            "text": "Que souhaitez-vous faire?",
+            "quick_replies":[
+              {
+                "content_type":"text",
+                "title":"Acheter",
+                "payload":"DET_ACH_RL",
+              },{
+                "content_type":"text",
+                "title":"Liste des Whiskys",
+                "payload":"LIST_WHISKY",
+              },{
+                "content_type":"text",
+                "title":"Menu principal",
+                "payload":"MENU",
+              }
+            ]
+          }
+        }
+
+        // Send the HTTP request to the Messenger Platform
+        request({
+          "uri": "https://graph.facebook.com/v7.0/me/messages",
+          "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
+          "method": "POST",
+          "json": request_body
+        }, (err, res, body) => {
+          if (!err) {
+            console.log('message sent!')
+          } else {
+            console.error("Unable to send message:" + err);
+          }
+        });
       }else if(idWhisky===2){
         let image_response = {
           "attachment": {
@@ -216,6 +255,45 @@ let sendDetailWhisky = (sender_psid, idWhisky) => {
         await sendMessage(sender_psid,descr_response);
         await sendTypingOn(sender_psid);
         await sendMessage(sender_psid,prix_response);
+
+        let request_body = {
+          "recipient":{
+            "id": sender_psid
+          },
+          "messaging_type": "RESPONSE",
+          "message":{
+            "text": "Que souhaitez-vous faire?",
+            "quick_replies":[
+              {
+                "content_type":"text",
+                "title":"Acheter",
+                "payload":"DET_ACH_JD",
+              },{
+                "content_type":"text",
+                "title":"Liste des Whiskys",
+                "payload":"LIST_WHISKY",
+              },{
+                "content_type":"text",
+                "title":"Menu principal",
+                "payload":"MENU",
+              }
+            ]
+          }
+        }
+
+        // Send the HTTP request to the Messenger Platform
+        request({
+          "uri": "https://graph.facebook.com/v7.0/me/messages",
+          "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
+          "method": "POST",
+          "json": request_body
+        }, (err, res, body) => {
+          if (!err) {
+            console.log('message sent!')
+          } else {
+            console.error("Unable to send message:" + err);
+          }
+        });
       }
       else if(idWhisky===3){
         let image_response = {
@@ -235,6 +313,46 @@ let sendDetailWhisky = (sender_psid, idWhisky) => {
         await sendMessage(sender_psid,descr_response);
         await sendTypingOn(sender_psid);
         await sendMessage(sender_psid,prix_response);
+
+        let request_body = {
+          "recipient":{
+            "id": sender_psid
+          },
+          "messaging_type": "RESPONSE",
+          "message":{
+            "text": "Que souhaitez-vous faire?",
+            "quick_replies":[
+              {
+                "content_type":"text",
+                "title":"Acheter",
+                "payload":"DET_ACH_BL",
+              },{
+                "content_type":"text",
+                "title":"Liste des Whiskys",
+                "payload":"LIST_WHISKY",
+              },{
+                "content_type":"text",
+                "title":"Menu principal",
+                "payload":"MENU",
+              }
+            ]
+          }
+        }
+
+        // Send the HTTP request to the Messenger Platform
+        request({
+          "uri": "https://graph.facebook.com/v7.0/me/messages",
+          "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
+          "method": "POST",
+          "json": request_body
+        }, (err, res, body) => {
+          if (!err) {
+            console.log('message sent!')
+          } else {
+            console.error("Unable to send message:" + err);
+          }
+        });
+      }
       }
 
       resolve("done");
