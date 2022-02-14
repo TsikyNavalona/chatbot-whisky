@@ -27,7 +27,7 @@ let getFacebookUsername = (sender_psid) => {
 let sendResponseWelcomeNewCustomer = (username, sender_psid) => {
     return new Promise( async(resolve, reject) => {
       try{
-        let first_response = {"text": `Hey ${username}. Bienvenue  sur le Chatbot de Whisky Mada Corp!`}
+        let first_response = {"text": `Hey ${username} 👋. Bienvenue  sur le Chatbot de Whisky Mada Corp 🥃 !`}
         let second_response = {
           "attachment": {
             "type": "template",
@@ -80,7 +80,7 @@ let sendMainMenu = (sender_psid) => {
                 ],
               },
               {
-                "title": "Contact",
+                "title": "Nous contacter",
                 "image_url": "https://checkrz.com/wp-content/uploads/2020/07/contact-us_540x_f09f05db-24f8-4f55-9f0c-4277ed2adb92.jpg",
                 "buttons": [
                   {
