@@ -173,6 +173,64 @@ let sendListWhisky = (sender_psid) => {
 
 };
 
+let sendDetailWhisky = (sender_psid, idWhisky) => {
+  return new Promise( async(resolve, reject) => {
+    try{
+      if(idWhisky===1){
+        let image_response = {
+          "attachment": {
+            "type": "image",
+            "payload": {
+                "url":"https://i.ibb.co/Q9k9Nfv/red.jpg"
+            }
+          }
+        }
+        let descr_response = {"text": `Johnnie Walker Red Label 1L. Avec environ 85 millions de bouteilles commercialisées en 1999, ce blend est le whisky le plus vendu à travers le monde. De couleur orangée, le Red Label possède un nez dominé par une douceur maltée. La bouche est sèche avec une trace de tourbe. La finale de longueur moyenne est douce amère. Le Red Label est une valeur sûre.`}
+        let prix_response = {"text": `160.000 Ariary`}
+
+        await sendMessage(sender_psid,image_response);
+        await sendMessage(sender_psid,descr_response);
+        await sendMessage(sender_psid,prix_response);
+      }else if(idWhisky===2){
+        let image_response = {
+          "attachment": {
+            "type": "image",
+            "payload": {
+                "url":"https://i.ibb.co/Ypg5pf6/jackda.jpg"
+            }
+          }
+        }
+        let descr_response = {"text": `Jack Daniel's OLD NO. 7 1L. L'incontournable Jack Daniel's est un whiskey du Tennessee et non un bourbon (Kentucky) : en effet, après distillation, le whisky est filtré par une couche de charbon de bois d'érable de 3 mètres avant sa mise en fût. `}
+        let prix_response = {"text": `210.000 Ariary`}
+
+        await sendMessage(sender_psid,image_response);
+        await sendMessage(sender_psid,descr_response);
+        await sendMessage(sender_psid,prix_response);
+      }
+      else if(idWhisky===3){
+        let image_response = {
+          "attachment": {
+            "type": "image",
+            "payload": {
+                "url":"https://i.ibb.co/5G16hXG/black.jpg"
+            }
+          }
+        }
+        let descr_response = {"text": `Johnnie Walker Black Label 1L. Il est le scotch whisky 12 ans d'âge le plus vendu au monde. Un whisky intense d'une rare complexité qui révèle de nouveaux arômes à chaque dégustation. `}
+        let prix_response = {"text": `250.000 Ariary`}
+
+        await sendMessage(sender_psid,image_response);
+        await sendMessage(sender_psid,descr_response);
+        await sendMessage(sender_psid,prix_response);
+      }
+
+      resolve("done");
+    }catch(e){
+      reject(e)
+    }
+  });
+};
+
 let sendContact = (sender_psid) => {
 
 
@@ -206,5 +264,6 @@ module.exports = {
     sendResponseWelcomeNewCustomer: sendResponseWelcomeNewCustomer,
     sendMainMenu: sendMainMenu,
     sendListWhisky: sendListWhisky,
-    sendContact: sendContact
+    sendContact: sendContact,
+    sendDetailWhisky: sendDetailWhisky
 };

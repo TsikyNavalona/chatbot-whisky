@@ -139,6 +139,15 @@ let handlePostback = async (sender_psid, received_postback) => {
     case "CONTACT":
       await chatBotService.sendContact(sender_psid);
       break;
+    case "D_RED_LABEL":
+      await chatBotService.sendDetailWhisky(sender_psid,1);
+      break;
+    case "D_JACK_DA":
+      await chatBotService.sendDetailWhisky(sender_psid,2);
+      break;
+    case "D_BLACK_LABEL":
+      await chatBotService.sendDetailWhisky(sender_psid,3);
+      break;
     default :
       console.log("erreur");
   }
