@@ -80,7 +80,7 @@ let sendMainMenu = (sender_psid) => {
                 ],
               },
               {
-
+                "title": "Contact",
                 "image_url": "https://checkrz.com/wp-content/uploads/2020/07/contact-us_540x_f09f05db-24f8-4f55-9f0c-4277ed2adb92.jpg",
                 "buttons": [
                   {

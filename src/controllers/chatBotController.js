@@ -131,6 +131,7 @@ let handlePostback = async (sender_psid, received_postback) => {
       //response = { "text": `Hey ${username} Bienvenue  sur le Chatbot de Whisky Mada Corp`};
       break;
     case "MENU":
+      console.log("ato no mande ///////////////////:")
       await chatBotService.sendMainMenu(sender_psid);
       break;
     default :
