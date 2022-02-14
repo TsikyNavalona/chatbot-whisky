@@ -315,11 +315,11 @@ let sendAchatWhisky = (sender_psid, idWhisky) => {
             "quick_replies":[
               {
                 "content_type":"text",
-                "title":"Revenir au menu principal",
+                "title":"Menu principal",
                 "payload":"MENU",
               },{
                 "content_type":"text",
-                "title":"Voir la liste des Whiskys",
+                "title":"Liste des Whiskys",
                 "payload":"LIST_WHISKY",
               }
             ]

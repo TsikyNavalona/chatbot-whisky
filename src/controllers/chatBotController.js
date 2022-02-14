@@ -73,6 +73,13 @@ function handleMessage(sender_psid, received_message) {
 
   let response;
 
+  if(received_message && received_message.quick_reply && received_message.quick_reply.payload){
+    if(received_message.quick_reply.payload ==="LIST_WHISKY" || received_message.quick_reply.payload ==="MENU"){
+      await handlePostback(sender_psid,received_message.quick_reply)
+    }
+    return;
+  }
+
   // Check if the message contains text
   if (received_message.text) {
 
