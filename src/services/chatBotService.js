@@ -70,7 +70,7 @@ let sendMainMenu = (sender_psid) => {
               {
                 "title": "Nos produits",
                 //"subtitle": "Nous sommes heureux de vous proposer une large gamme de nos vins et nos spiritueux,",
-                "image_url": "https://i.ibb.co/CW4JBYQ/img-whisky.jpg",
+                "image_url": "https://i.ibb.co/44CgjLh/whisky-mine.jpg",
                 "buttons": [
                   {
                     "type": "postback",
