@@ -353,7 +353,7 @@ let sendDetailWhisky = (sender_psid, idWhisky) => {
           }
         });
       }
-      }
+      
 
       resolve("done");
     }catch(e){
