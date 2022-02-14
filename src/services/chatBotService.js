@@ -35,7 +35,7 @@ let sendResponseWelcomeNewCustomer = (username, sender_psid) => {
               "template_type": "generic",
               "elements": [{
                 "title": "Whisky Mada Corp",
-                "image_url": "url here",
+                "image_url": "https://i.ibb.co/CW4JBYQ/img-whisky.jpg",
                 "buttons": [
                   {
                     "type": "postback",
