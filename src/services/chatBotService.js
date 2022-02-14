@@ -123,7 +123,7 @@ let sendListWhisky = (sender_psid) => {
                   },
                   {
                     "type": "postback",
-                    "title": "Details",
+                    "title": "Détails",
                     "payload": "D_RED_LABEL",
                   },
                 ],
@@ -139,7 +139,7 @@ let sendListWhisky = (sender_psid) => {
                   },
                   {
                     "type": "postback",
-                    "title": "Details",
+                    "title": "Détails",
                     "payload": "D_JACK_DA",
                   },
                 ],
@@ -155,7 +155,7 @@ let sendListWhisky = (sender_psid) => {
                   },
                   {
                     "type": "postback",
-                    "title": "Details",
+                    "title": "Détails",
                     "payload": "D_BLACK_LABEL",
                   },
                 ],
@@ -311,16 +311,16 @@ let sendAchatWhisky = (sender_psid, idWhisky) => {
           },
           "messaging_type": "RESPONSE",
           "message":{
-            "text": "Comment voulez-vous obtenir le J.W Black Label",
+            "text": "Nous sommes vraiment désolés, notre stock de Black Label est épuisé.",
             "quick_replies":[
               {
                 "content_type":"text",
-                "title":"Récupérer chez nous",
-                "payload":"BL_RECUP",
+                "title":"Revenir au menu principal",
+                "payload":"MENU",
               },{
                 "content_type":"text",
-                "title":"Se faire livrer",
-                "payload":"BL_LIVR",
+                "title":"Voir la liste des Whiskys",
+                "payload":"LIST_WHISKY",
               }
             ]
           }
