@@ -69,12 +69,12 @@ let sendMainMenu = (sender_psid) => {
             "elements": [
               {
                 "title": "Nos produits",
-                "subtitle": "Nous sommes heureux de vous proposer une large gamme de nos vins et nos spiritueux,",
+                //"subtitle": "Nous sommes heureux de vous proposer une large gamme de nos vins et nos spiritueux,",
                 "image_url": "https://i.ibb.co/CW4JBYQ/img-whisky.jpg",
                 "buttons": [
                   {
                     "type": "postback",
-                    "title": "Voir les produits",
+                    "title": "En savoir plus",
                     "payload": "LIST_WHISKY",
                   },
                 ],
@@ -85,7 +85,7 @@ let sendMainMenu = (sender_psid) => {
                 "buttons": [
                   {
                     "type": "postback",
-                    "title": "Nous Contacter",
+                    "title": "En savoir plus",
                     "payload": "CONTACT",
                   },
                 ],
