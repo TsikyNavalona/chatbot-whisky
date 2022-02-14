@@ -223,11 +223,20 @@ let sendDetailWhisky = (sender_psid, idWhisky) => {
             ]
           }
         }
-          await sendMessage(sender_psid,request_body);
-
 
         // Send the HTTP request to the Messenger Platform
-
+        request({
+          "uri": "https://graph.facebook.com/v7.0/me/messages",
+          "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
+          "method": "POST",
+          "json": request_body
+        }, (err, res, body) => {
+          if (!err) {
+            console.log('message sent!')
+          } else {
+            console.error("Unable to send message:" + err);
+          }
+        });
       }else if(idWhisky===2){
         let image_response = {
           "attachment": {
@@ -273,8 +282,18 @@ let sendDetailWhisky = (sender_psid, idWhisky) => {
         }
 
         // Send the HTTP request to the Messenger Platform
-
-        await sendMessage(sender_psid,request_body);
+        request({
+          "uri": "https://graph.facebook.com/v7.0/me/messages",
+          "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
+          "method": "POST",
+          "json": request_body
+        }, (err, res, body) => {
+          if (!err) {
+            console.log('message sent!')
+          } else {
+            console.error("Unable to send message:" + err);
+          }
+        });
       }
       else if(idWhisky===3){
         let image_response = {
@@ -321,10 +340,20 @@ let sendDetailWhisky = (sender_psid, idWhisky) => {
         }
 
         // Send the HTTP request to the Messenger Platform
-
-        await sendMessage(sender_psid,request_body);
+        request({
+          "uri": "https://graph.facebook.com/v7.0/me/messages",
+          "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
+          "method": "POST",
+          "json": request_body
+        }, (err, res, body) => {
+          if (!err) {
+            console.log('message sent!')
+          } else {
+            console.error("Unable to send message:" + err);
+          }
+        });
       }
-
+      
 
       resolve("done");
     }catch(e){
