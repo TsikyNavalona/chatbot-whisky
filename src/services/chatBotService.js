@@ -49,7 +49,9 @@ let sendResponseWelcomeNewCustomer = (username, sender_psid) => {
             }
           }
         }
+        await sendTypingOn(sender_psid);
         await sendMessage(sender_psid,first_response);
+        await sendTypingOn(sender_psid);
         await sendMessage(sender_psid,second_response);
         resolve("done");
       }catch(e){
@@ -94,6 +96,7 @@ let sendMainMenu = (sender_psid) => {
           }
         }
       }
+      await sendTypingOn(sender_psid);
       await sendMessage(sender_psid,response);
       resolve("done");
     }catch(e){
@@ -164,6 +167,7 @@ let sendListWhisky = (sender_psid) => {
           }
         }
       }
+      await sendTypingOn(sender_psid);
       await sendMessage(sender_psid,response);
       resolve("done");
     }catch(e){
@@ -188,9 +192,12 @@ let sendDetailWhisky = (sender_psid, idWhisky) => {
         let descr_response = {"text": `Johnnie Walker Red Label 1L. Avec environ 85 millions de bouteilles commercialisées en 1999, ce blend est le whisky le plus vendu à travers le monde. De couleur orangée, le Red Label possède un nez dominé par une douceur maltée. La bouche est sèche avec une trace de tourbe. La finale de longueur moyenne est douce amère. Le Red Label est une valeur sûre.`}
         let prix_response = {"text": `160.000 Ariary`}
 
-        await sendMessage(sender_psid,image_response);
+        await sendTypingOn(sender_psid);
         await sendMessage(sender_psid,descr_response);
+        await sendTypingOn(sender_psid);
         await sendMessage(sender_psid,prix_response);
+        await sendTypingOn(sender_psid);
+        await sendMessage(sender_psid,image_response);
       }else if(idWhisky===2){
         let image_response = {
           "attachment": {
@@ -203,9 +210,12 @@ let sendDetailWhisky = (sender_psid, idWhisky) => {
         let descr_response = {"text": `Jack Daniel's OLD NO. 7 1L. L'incontournable Jack Daniel's est un whiskey du Tennessee et non un bourbon (Kentucky) : en effet, après distillation, le whisky est filtré par une couche de charbon de bois d'érable de 3 mètres avant sa mise en fût. `}
         let prix_response = {"text": `210.000 Ariary`}
 
-        await sendMessage(sender_psid,image_response);
+        await sendTypingOn(sender_psid);
         await sendMessage(sender_psid,descr_response);
+        await sendTypingOn(sender_psid);
         await sendMessage(sender_psid,prix_response);
+        await sendTypingOn(sender_psid);
+        await sendMessage(sender_psid,image_response);
       }
       else if(idWhisky===3){
         let image_response = {
@@ -219,9 +229,12 @@ let sendDetailWhisky = (sender_psid, idWhisky) => {
         let descr_response = {"text": `Johnnie Walker Black Label 1L. Il est le scotch whisky 12 ans d'âge le plus vendu au monde. Un whisky intense d'une rare complexité qui révèle de nouveaux arômes à chaque dégustation. `}
         let prix_response = {"text": `250.000 Ariary`}
 
-        await sendMessage(sender_psid,image_response);
+        await sendTypingOn(sender_psid);
         await sendMessage(sender_psid,descr_response);
+        await sendTypingOn(sender_psid);
         await sendMessage(sender_psid,prix_response);
+        await sendTypingOn(sender_psid);
+        await sendMessage(sender_psid,image_response);
       }
 
       resolve("done");
@@ -235,6 +248,7 @@ let sendAchatWhisky = (sender_psid, idWhisky) => {
   return new Promise( async(resolve, reject) => {
     try{
       if(idWhisky===1){
+        await sendTypingOn(sender_psid);
         let request_body = {
           "recipient":{
             "id": sender_psid
@@ -270,6 +284,7 @@ let sendAchatWhisky = (sender_psid, idWhisky) => {
           }
         });
       }else if(idWhisky===2){
+        await sendTypingOn(sender_psid);
         let request_body = {
           "recipient":{
             "id": sender_psid
@@ -305,6 +320,7 @@ let sendAchatWhisky = (sender_psid, idWhisky) => {
           }
         });
       }else if(idWhisky===3){
+        await sendTypingOn(sender_psid);
         let request_body = {
           "recipient":{
             "id": sender_psid
@@ -374,6 +390,37 @@ let sendMessage = (sender_psid, response) =>{
     }
   });
 };
+
+let sendTypingOn = (sender_psid) => {
+    return new Promise ((resolve, reject) => {
+       try{
+           let request_body = {
+               "recipient": {
+                   "id": sender_psid
+               },
+               "sender_action":"typing_on"
+           };
+
+           // Send the HTTP request to the Messenger Platform
+           request({
+               "uri": "https://graph.facebook.com/v7.0/me/messages",
+               "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
+               "method": "POST",
+               "json": request_body
+           }, (err, res, body) => {
+               if (!err) {
+                   resolve('done!')
+               } else {
+                   reject("Unable to send message:" + err);
+               }
+           });
+       } catch (e) {
+           reject(e);
+       }
+    });
+};
+
+
 
 module.exports = {
     getFacebookUsername: getFacebookUsername,
