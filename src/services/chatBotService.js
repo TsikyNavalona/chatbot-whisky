@@ -222,6 +222,7 @@ let sendDetailWhisky = (sender_psid, idWhisky) => {
               }
             ]
           }
+        }
           await sendMessage(sender_psid,request_body);
 
 
