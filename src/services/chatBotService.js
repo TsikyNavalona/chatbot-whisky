@@ -35,7 +35,7 @@ let sendResponseWelcomeNewCustomer = (username, sender_psid) => {
               "template_type": "generic",
               "elements": [{
                 "title": "Whisky Mada Corp",
-                "subtitle": "Nous proposons des Whiskys importés à des prix defiant toute concurrence,",
+                "subtitle": "Nous proposons des Whiskys importés à des prix imbattables,",
                 "image_url": "https://i.ibb.co/CW4JBYQ/img-whisky.jpg",
                 "buttons": [
                   {

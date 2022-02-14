@@ -130,7 +130,7 @@ let handlePostback = async (sender_psid, received_postback) => {
       await chatBotService.sendResponseWelcomeNewCustomer(username,sender_psid);
       //response = { "text": `Hey ${username} Bienvenue  sur le Chatbot de Whisky Mada Corp`};
       break;
-    case "Menu":
+    case "MENU":
       await chatBotService.sendMainMenu(sender_psid);
       break;
     default :
